@@ -58,7 +58,7 @@ public class FlowLayout extends ViewGroup {
         // wrap_content
         int width = 0;
         int height = 0;
-
+        //记录每一行的宽度和高度
         int lineWidth = 0;
         int lineHeight = 0;
 
@@ -73,6 +73,7 @@ public class FlowLayout extends ViewGroup {
                 }
                 continue;
             }
+            //测量子View的宽和高
             measureChild(child, widthMeasureSpec, heightMeasureSpec);
             MarginLayoutParams lp = (MarginLayoutParams) child
                     .getLayoutParams();
@@ -125,9 +126,10 @@ public class FlowLayout extends ViewGroup {
             MarginLayoutParams lp = (MarginLayoutParams) child
                     .getLayoutParams();
 
+            //子view占据的宽度和高度
             int childWidth = child.getMeasuredWidth();
             int childHeight = child.getMeasuredHeight();
-
+            //
             if (childWidth + lineWidth + lp.leftMargin + lp.rightMargin > width - getPaddingLeft() - getPaddingRight()) {
                 mLineHeight.add(lineHeight);
                 mAllViews.add(lineViews);
@@ -135,6 +137,7 @@ public class FlowLayout extends ViewGroup {
 
                 lineWidth = 0;
                 lineHeight = childHeight + lp.topMargin + lp.bottomMargin;
+                //重置我们的View集合
                 lineViews = new ArrayList<View>();
             }
             lineWidth += childWidth + lp.leftMargin + lp.rightMargin;
