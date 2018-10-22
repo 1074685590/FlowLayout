@@ -6,6 +6,9 @@ Android流式布局，支持单选、多选等，适合用于产品标签等。
 
 ##特色
 * 以setAdapter形式注入数据
+
+
+
 * 直接设置selector为background即可完成标签选则的切换，类似CheckBox
 * 支持控制选择的Tag数量，比如：单选、多选
 * 支持setOnTagClickListener，当点击某个Tag回调
